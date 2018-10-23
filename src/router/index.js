@@ -63,9 +63,28 @@ export const constantRouterMap = [
     hidden: true
   },
   {
+    path: '/user',
+    component: Layout,
+    meta: { title: '用户权限管理', icon: 'email', noCache: true },
+    children: [
+      {
+        path: 'organmazation',
+        component: () => import('@/views/organmazation/index'),
+        name: 'Organmazation',
+        meta: { title: '组织结构', icon: 'null', noCache: true }
+      },
+      {
+        path: 'management',
+        component: () => import('@/views/management/index'),
+        name: 'Management',
+        meta: { title: '角色管理', icon: 'null', noCache: true }
+      }
+    ]
+  },
+  {
     path: '',
     component: Layout,
-    redirect: 'dashboard',
+    rediect: 'dashboard',
     children: [
       {
         path: 'dashboard',
@@ -116,9 +135,7 @@ export const asyncRouterMap = [
     redirect: '/permission/index',
     alwaysShow: true, // will always show the root menu
     meta: {
-      title: 'permission',
-      icon: 'lock',
-      roles: ['admin', 'editor'] // you can set roles in root nav
+      title: 'permission', icon: 'lock', roles: ['admin', 'editor'] // you can set roles in root nav
     },
     children: [
       {
