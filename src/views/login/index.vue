@@ -31,13 +31,13 @@
           :placeholder="$t('login.password')"
           name="password"
           auto-complete="on"
-          @keyup.enter.native="handleLogin" />
+          @keyup.enter.native="goLogin" />
         <span class="show-pwd" @click="showPwd">
           <svg-icon icon-class="eye" />
         </span>
       </el-form-item>
 
-      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">{{ $t('login.logIn') }}</el-button>
+      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="goLogin">{{ $t('login.logIn') }}</el-button>
 
       <div class="tips">
         <span>{{ $t('login.username') }} : admin</span>
@@ -66,6 +66,7 @@
 import { isvalidUsername } from '@/utils/validate'
 import LangSelect from '@/components/LangSelect'
 import SocialSign from './socialsignin'
+import { Login } from '../../api/organization'
 
 export default {
   name: 'Login',
@@ -122,6 +123,9 @@ export default {
       } else {
         this.passwordType = 'password'
       }
+    },
+    goLogin() {
+      Login()
     },
     handleLogin() {
       this.$refs.loginForm.validate(valid => {

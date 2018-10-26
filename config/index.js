@@ -9,7 +9,13 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/honghe': {
+        target: 'http://bcs.hitevision.com',
+        // secure: false
+        pathRewrite: {'^/honghe' : ''}
+      }
+    },
 
     // Various Dev Server settings
 

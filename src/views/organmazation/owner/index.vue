@@ -75,6 +75,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'Organmazation',
   data() {
@@ -237,7 +238,14 @@ export default {
     }
   },
   created() {
-    console.log(this)
+    console.log(axios)
+    axios.get('http://api.haomo-studio.com/org/swagger-ui.html#/department-type-controller')
+      .then(function(data) {
+        console.log('data: ', data)
+      })
+      .catch(function(err) {
+        console.log('err: ', err)
+      })
   }
 }
 </script>
