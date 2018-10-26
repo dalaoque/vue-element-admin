@@ -1,13 +1,16 @@
 import request from '@/utils/request'
+import qs from 'qs'
 
-export function Login(username, password) {
+export function Login({ mobile, password, platform }) {
   const data = {
-    username,
-    password
+    mobile,
+    password,
+    platform
   }
+
   return request({
     url: '/honghe/v1/account/admin/login',
     method: 'post',
-    data
+    data: qs.stringify(data)
   })
 }

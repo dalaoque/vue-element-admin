@@ -67,6 +67,7 @@ import { isvalidUsername } from '@/utils/validate'
 import LangSelect from '@/components/LangSelect'
 import SocialSign from './socialsignin'
 import { Login } from '../../api/organization'
+import { setToken } from '@/utils/auth'
 
 export default {
   name: 'Login',
@@ -89,7 +90,7 @@ export default {
     return {
       loginForm: {
         username: 'admin',
-        password: '1111111'
+        password: '123456'
       },
       loginRules: {
         username: [{ required: true, trigger: 'blur', validator: validateUsername }],
@@ -125,7 +126,23 @@ export default {
       }
     },
     goLogin() {
-      Login()
+      const { username, password } = this.loginForm
+      const data = {
+        mobile: username,
+        password,
+        platform: 'PC'
+      }
+      Login(data).then(res => {
+        console.log('res: ', res)
+
+        const token = res.data.token.token
+        this.$store.commit('SET_TOKEN', token)
+        setToken(token)
+
+        this.$router.push('/')
+      }).catch(() => {
+        console.log('用户名密码不正确')
+      })
     },
     handleLogin() {
       this.$refs.loginForm.validate(valid => {

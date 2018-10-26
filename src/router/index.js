@@ -63,10 +63,25 @@ export const constantRouterMap = [
     hidden: true
   },
   {
-    path: '/user',
+    path: '',
     component: Layout,
+    rediect: '/organmazation',
     meta: { title: '用户权限管理', icon: 'email', noCache: true },
+    beforeEnter(to, from, next) {
+      if (to.path === '/') {
+        next('/organmazation')
+      } else {
+        next()
+      }
+    },
     children: [
+      // {
+      //   path: 'dashboard',
+      //   component: () => import('@/views/dashboard/index'),
+      //   name: 'Dashboard',
+      //   meta: { title: 'dashboard', icon: 'dashboard', noCache: true }
+      // }
+
       {
         path: 'organmazation',
         component: () => import('@/views/organmazation/index'),
@@ -82,17 +97,10 @@ export const constantRouterMap = [
     ]
   },
   {
-    path: '',
-    component: Layout,
-    rediect: 'dashboard',
-    children: [
-      {
-        path: 'dashboard',
-        component: () => import('@/views/dashboard/index'),
-        name: 'Dashboard',
-        meta: { title: 'dashboard', icon: 'dashboard', noCache: true }
-      }
-    ]
+    path: '/dashboard',
+    component: () => import('@/views/dashboard/index'),
+    name: 'Dashboard',
+    meta: { title: 'dashboard', icon: 'dashboard', noCache: true }
   },
   {
     path: '/documentation',
