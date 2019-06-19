@@ -718,11 +718,10 @@ babel-plugin-check-es2015-constants@^6.22.0:
   dependencies:
     babel-runtime "^6.22.0"
 
-babel-plugin-dynamic-import-node@2.0.0:
-  version "2.0.0"
-  resolved "http://registry.npm.taobao.org/babel-plugin-dynamic-import-node/download/babel-plugin-dynamic-import-node-2.0.0.tgz#d6fc3f6c5e3bdc34e49c15faca7ce069755c0a57"
+babel-plugin-dynamic-import-node@2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-dynamic-import-node/-/babel-plugin-dynamic-import-node-2.3.0.tgz#f00f507bdaa3c3e3ff6e7e5e98d90a7acab96f7f"
   dependencies:
-    babel-plugin-syntax-dynamic-import "^6.18.0"
     object.assign "^4.1.0"
 
 babel-plugin-syntax-async-functions@^6.8.0:
