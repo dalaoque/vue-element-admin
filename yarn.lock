@@ -6448,9 +6448,9 @@ sockjs@0.3.19:
     faye-websocket "^0.10.0"
     uuid "^3.0.1"
 
-sortablejs@1.7.0, sortablejs@^1.7.0:
-  version "1.7.0"
-  resolved "http://registry.npm.taobao.org/sortablejs/download/sortablejs-1.7.0.tgz#80a2b2370abd568e1cec8c271131ef30a904fa28"
+sortablejs@1.10.0, sortablejs@^1.7.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/sortablejs/-/sortablejs-1.10.0.tgz#0ebc054acff2486569194a2f975b2b145dd5e7d6"
 
 source-list-map@^2.0.0:
   version "2.0.1"
